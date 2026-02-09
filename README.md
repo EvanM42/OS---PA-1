@@ -9,9 +9,12 @@ Design of wc_mul.c:
 
     IPC:
         child:
-            Each child has its own pipe and is forked. It closes the read end and then opens the file and calls word_count with its given offset and size. It then writes count_t to write end of the pipe and then exits. The last child gets all the remainder bytes, like if there is an odd number so the whole file goes through the code properly.
+            Each child has its own pipe and is forked. 
+            It closes the read end and then opens the file and calls word_count with its given offset and size. It then writes count_t to write end of the pipe and then exits. 
+            The last child gets all the remainder bytes, like if there is an odd number so the whole file goes through the code properly.
         parent:
-            The parent closes all write ends after forking the children, opposite of children. It calls waitpid for each child, checks exit status, reads count_t and then takes all the line, word, and character counts and prints the final total
+            The parent closes all write ends after forking the children, opposite of children. 
+            It calls waitpid for each child, checks exit status, reads count_t and then takes all the line, word, and character counts and prints the final total.
             
 Handling crashes:
     Successful children:
