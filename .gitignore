@@ -1,0 +1,5 @@
+large.txt
+*.tar.gz
+*.o
+wc
+wc_mul
