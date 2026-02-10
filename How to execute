@@ -1,0 +1,9 @@
+layout:
+  code to run | number of children | text file | % that crashes (optional)
+general:
+  ./wc_mul 10 small.txt
+  ./wc_mul 1 small.txt
+to see times (real, user, sys):
+  time ./wc_mul 10 small.txt
+with crashing: 
+  ./wc_mul 10 small.txt 20
